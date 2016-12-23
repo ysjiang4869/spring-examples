@@ -1,12 +1,60 @@
-*.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
 
-# Package Files #
+#---------------
+# project
+
 *.jar
-*.war
-*.ear
+*.bak
+*.log
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+*.sw?
+.#*
+*#
+*~
+dependency-reduced-pom.xml
+*.sublime-*
+.gradle
+.idea
+.idea/workspace.xml
+README.html
+.classpath
+.project
+.settings
+.classpath
+./lib/
+./src/main/webapp/WEB-INF/lib
+# windows
+**/.db
+**/workspace.xml
+bin
+build
+log
+target
+target/
+db/
+out/
+/scratch
+temp/
+tmp/
+obsolate/
+site-mvc/
+modules/
+
+
+
+
+#---------------
+# mac os x
+
+**/.DS_Store
+
+# Thumbnails
+**/._*
+
+# Files that might appear on external disk
+**/.Spotlight-V100
+**/.Trashes
+/site-springboot/Data
+/site-springboot/src/main/webapp/wiki
+/*.iml
+
