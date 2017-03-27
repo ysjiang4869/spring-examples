@@ -7,16 +7,11 @@ import java.util.*;
 
 /**
  * Created by Administrator on 2016/10/25 0025.
- * 目前来看，JdbcTemplate的优点是可以将数据源定义为连接池等，省略了sql异常的处理
- * 暂时采用该版本，原版本依旧保留，update和add方法可以使用jdbcTemplate的方法进一步改进，不用拼sql语句
+ *
  */
 public class JxTaskService {
 
     private JiTaskDao taskDao;
-
-    public JxTaskService() {
-
-    }
 
     public void init(JiTaskDao dao){
         this.taskDao=dao;
@@ -33,16 +28,15 @@ public class JxTaskService {
 
 
     public JxTask get(String id) {
-        JxTask ret=null;
-
-        return ret;
+        return taskDao.get(id);
     }
 
 
     public void set(String id, JxTask item) {
-
+        if(id.equals(item.getId())){
+            taskDao.set(item);
+        }
     }
-
 
     public JxTask add(JxTask item) {
         taskDao.add(item);
@@ -50,6 +44,6 @@ public class JxTaskService {
     }
 
     public void remove(String id) {
-
+        taskDao.delete(id);
     }
 }

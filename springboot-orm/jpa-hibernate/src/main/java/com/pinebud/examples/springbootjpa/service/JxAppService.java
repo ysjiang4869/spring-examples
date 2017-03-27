@@ -10,48 +10,39 @@ import org.springframework.stereotype.Service;
 
 /**
  * Created by Administrator on 2016/6/16 0016.
+ *
  */
 @Service("svc")
 @Scope("singleton")
 public class JxAppService {
 
-    private volatile static JxAppService singleton = null;
     private static final Logger log = LoggerFactory.getLogger(JxAppService.class);
 
-    public JxAppService(){
-
-    }
-    protected JxTaskService task;
+    private JxTaskService task;
 
 
-    public static JxAppService getInstance() {
-        if (singleton == null) {
-            synchronized (JxAppService.class) {
-                if (singleton == null)
-                    singleton = new JxAppService();
-            }
-        }
-        return singleton;
-    }
+    private final JxJpaDao jxJpaDao;
 
     @Autowired
-    private JxJpaDao jxJpaDao;
+    public JxAppService(JxJpaDao jxJpaDao) {
+        this.jxJpaDao = jxJpaDao;
+    }
 
-    public JxTaskService newTaskService(){
+    private JxTaskService newTaskService(){
 
         JxTaskService task=new JxTaskService();
         try{
             task.init(jxJpaDao); //此处切换不同的orm dao，即可实现采用不同的orm工具
         }
         catch (Exception e){
+            log.error(e.getMessage(),e);
             task=null;
         }
         return task;
     }
 
     public JxTaskService getTaskService(){
-        if (this.task == null)
-        {
+        if (this.task == null) {
             this.task = newTaskService();
         }
         return this.task;

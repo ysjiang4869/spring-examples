@@ -1,27 +1,30 @@
 package com.pinebud.examples.springboothibernate.service.dao;
 
-import com.pinebud.examples.springboothibernate.service.dao.JiTaskDao;
+
 import com.pinebud.examples.springboothibernate.service.task.JxTask;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 /**
  * Created by jiangyuesong on 2017/1/11 0011.
+ *
  */
 @Repository
 public class JxHibernateDao implements JiTaskDao {
 
+    private final SessionFactory sessionFactory;
+
     @Autowired
-    private SessionFactory sessionFactory;
+    public JxHibernateDao(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
-    public List<JxTask> find() {
-        return (List<JxTask>) sessionFactory.getCurrentSession().createQuery("from JxTask order by creattime desc").list();
+    public List find() {
+        return  sessionFactory.getCurrentSession().createQuery("from JxTask order by creattime desc").list();
     }
 
     @Override
@@ -32,16 +35,20 @@ public class JxHibernateDao implements JiTaskDao {
 
     @Override
     public JxTask get(String id) {
+        Session session=sessionFactory.getCurrentSession();
         return null;
     }
 
     @Override
     public void set(JxTask task) {
-
+        Session session=sessionFactory.getCurrentSession();
+        session.merge(task);
     }
 
     @Override
     public void delete(String id) {
-
+        Session session=sessionFactory.getCurrentSession();
+        JxTask item=this.get(id);
+        session.delete(item);
     }
 }

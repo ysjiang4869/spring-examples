@@ -20,6 +20,7 @@ import java.util.List;
 
 /**
  * Created by jiangyuesong on 2016/12/26 0026.
+ *
  */
 public class MyShiroRealm extends AuthorizingRealm {
 

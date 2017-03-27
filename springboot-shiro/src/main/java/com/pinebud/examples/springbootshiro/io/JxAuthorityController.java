@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Administrator on 2016/11/21 0021.
+ *
  */
 @RestController
-@CrossOrigin
 public class JxAuthorityController {
 
     private static final Logger logger = LoggerFactory.getLogger(JxAuthorityController.class);
@@ -26,7 +26,7 @@ public class JxAuthorityController {
     @RequestMapping(value="/login",method=RequestMethod.POST)
     public String login(@RequestParam(value = "username")String username,
                         @RequestParam(value = "password")String password){
-        JxUser user=new JxUser(username,password);;
+        JxUser user=new JxUser(username,password);
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword());
         //获取当前的Subject
         Subject currentUser = SecurityUtils.getSubject();

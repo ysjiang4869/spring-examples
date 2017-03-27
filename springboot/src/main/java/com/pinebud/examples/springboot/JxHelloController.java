@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by Administrator on 2016/11/21 0021.
+ *
  */
 @RestController
 public class JxHelloController {

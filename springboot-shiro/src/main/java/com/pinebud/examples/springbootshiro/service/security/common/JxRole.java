@@ -1,14 +1,16 @@
 package com.pinebud.examples.springbootshiro.service.security.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jiangyuesong on 2016/12/26 0026.
+ *
  */
 public class JxRole {
-    int id;
-    String rolename;
-    List<String> permissions;
+    private int id;
+    private String rolename;
+    private List<String> permissions=new ArrayList<>();
     public int getId() {
         return id;
     }

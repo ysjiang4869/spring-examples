@@ -1,18 +1,18 @@
 package com.pinebud.examples.springbootshiro.service.security.common;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by jiangyuesong on 2016/12/26 0026.
+ *
  */
 public class JxUser {
-    int id;
-    String username;
-    String password;
-    List<String> roles;
+    private int id;
+    private String username;
+    private String password;
+    private List<String> roles=new ArrayList<>();
 
-    public JxUser() {
-    }
 
     public JxUser(String username, String password) {
         this.username = username;

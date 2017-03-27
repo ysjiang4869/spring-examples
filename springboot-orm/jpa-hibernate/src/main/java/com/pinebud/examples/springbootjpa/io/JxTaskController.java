@@ -12,8 +12,8 @@ import java.util.UUID;
 
 /**
  * Created by Administrator on 2016/6/16 0016.
+ *
  */
-@CrossOrigin
 @RestController
 @RequestMapping(value = "/task")
 @Transactional

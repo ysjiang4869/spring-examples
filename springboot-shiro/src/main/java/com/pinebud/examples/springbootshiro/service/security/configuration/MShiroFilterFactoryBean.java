@@ -19,6 +19,7 @@ import java.util.Set;
 
 /**
  * Created by jiangyuesong on 2016/12/26 0026.
+ *
  */
 public class MShiroFilterFactoryBean extends ShiroFilterFactoryBean {
 

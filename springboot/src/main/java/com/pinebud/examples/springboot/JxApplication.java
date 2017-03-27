@@ -7,6 +7,7 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 
 /**
  * Created by Administrator on 2016/11/21 0021.
+ *
  */
 @SpringBootApplication
 public class JxApplication {

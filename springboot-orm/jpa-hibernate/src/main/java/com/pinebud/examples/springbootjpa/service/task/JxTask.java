@@ -1,14 +1,13 @@
 package com.pinebud.examples.springbootjpa.service.task;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
 /**
  * Created by allen on 6/8/2016.
+ *
  */
 @Entity
 @Table(name = "task")
@@ -19,27 +18,19 @@ public class JxTask {
     private String id;
     private UUID uuid;
     private String description;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date deadline;
     private int state;  //0: not start 1: under doing 9:finished
     private String principal;
-    @DateTimeFormat(pattern="yyyy-MM-dd")
     @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date creattime;
 
-    public JxTask()
-    {
 
-    }
-
-    public void init(String id, String description)
-    {
+    public void init(String id, String description) {
         this.init(id, description, null);
     }
 
-    public void init(String id, String description, Date deadline)
-    {
+    public void init(String id, String description, Date deadline) {
         this.setId(id);
         this.setDescription(description);
         this.setDeadline(deadline);
